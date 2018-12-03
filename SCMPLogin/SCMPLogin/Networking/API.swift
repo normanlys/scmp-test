@@ -18,7 +18,9 @@ class API {
         _ = post(url: url, jsonString: json) {
             (responseString, errorString) in
             if errorString != nil {
-                token = responseString!
+                let json = responseString!.data(using: .utf8)
+                let dict = try? JSONSerialization.jsonObject(with: json!, options: []) as? [String: String]
+                token = dict!?["token"]
             } else {
                 token = nil
             }
