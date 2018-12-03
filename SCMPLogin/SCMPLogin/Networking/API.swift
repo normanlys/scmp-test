@@ -9,21 +9,25 @@
 import Foundation
 
 class API {
-    func login(_ email: String, _ password: String) -> String {
+    func login(_ email: String, _ password: String) -> String? {
         let delay = 3
         let json = "{'email': \(email), 'password': \(password)}"
         let url = URL(string: "https://reqres.in/api/login?delay=\(delay)")!
         
-        var token = "test"
-        _ = post(url: url, jsonString: json) {postResponse in
-            sleep(UInt32(delay))
-            token = postResponse
+        var token: String? = nil
+        _ = post(url: url, jsonString: json) {
+            (responseString, errorString) in
+            if errorString != nil {
+                token = responseString!
+            } else {
+                token = nil
+            }
         }
         
         return token
     }
     
-    private func post(url: URL, jsonString: String, handler: @escaping (_ postResponse: String) -> Void) {
+    private func post(url: URL, jsonString: String, handler: @escaping (_ responseString: String?, _ errorString: String?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = "Post"
         request.httpBody = jsonString.data(using: .utf8)
@@ -32,33 +36,16 @@ class API {
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) {
             (data, response, error) in
-            if let data = data {
-                if let postResponse = String(data: data, encoding: .utf8) {
-                    handler(postResponse)
-                }
+            guard let data = data else {
+                handler(nil, "No data")
+                return
             }
+            guard let postResponse = String(data: data, encoding: .utf8) else {
+                handler(nil, "Cannot be decoded")
+                return
+            }
+            handler(postResponse, nil)
         }
         task.resume()
     }
-    
-//    private func post(url: URL, body: Data, completionHandler: @escaping (String) -> Void = {_ in return}) -> URLSessionTask {
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.httpBody = body
-//
-//        let session = URLSession(configuration: .default)
-//        let task = session.dataTask(with: request) {
-//            (data, response, error) in
-//            if let data = data {
-//                if let postResponse = String(data: data, encoding: .utf8) {
-//                    completionHandler(postResponse)
-//                }
-//            }
-//        }
-//
-//        task.resume()
-//
-//        return task
-//    }
-    
 }

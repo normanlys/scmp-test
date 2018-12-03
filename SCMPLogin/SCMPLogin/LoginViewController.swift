@@ -11,6 +11,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     var token: String = ""
+    var isLoading = false
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -27,9 +28,16 @@ class LoginViewController: UIViewController {
         }
 
         // login API
-        
-        token = API().login(email, password)
+        _ = startLoading()
+        guard let response = API().login(email, password) else { // need to await value
+            dismiss(animated: true, completion: {
+                self.showAlert(title: "Error", message: "Login unsuccessful")
+            })
+            return
+        }
+        token = response
         performSegue(withIdentifier: "LoginSegue", sender: nil)
+        return
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +49,7 @@ class LoginViewController: UIViewController {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,6 +73,23 @@ class LoginViewController: UIViewController {
     func isValidPassword(_ password: String) -> Bool {
         return (6...8).contains(password.count) && password.isAlphanumeric()
     }
+    
+    func startLoading() -> UIAlertController {
+        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
+        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = UIActivityIndicatorView.Style.gray
+        loadingIndicator.startAnimating();
+        
+        alert.view.addSubview(loadingIndicator)
+        present(alert, animated: true, completion: nil)
+        return alert
+    }
+    
+    func stopLoading() {
+        
+    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -72,8 +98,8 @@ extension LoginViewController: UITextFieldDelegate {
             passwordTextField.becomeFirstResponder()
         }
         if textField == passwordTextField {
-            login(self)
             passwordTextField.resignFirstResponder()
+            login(self)
         }
         
         return false
