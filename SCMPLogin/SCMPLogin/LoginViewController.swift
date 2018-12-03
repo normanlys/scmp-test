@@ -9,6 +9,8 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    var token: String = ""
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -25,8 +27,8 @@ class LoginViewController: UIViewController {
         }
 
         // login API
-        let token = API().login(email, password)
-        print(token)
+        
+        token = API().login(email, password)
         performSegue(withIdentifier: "LoginSegue", sender: nil)
     }
     override func viewDidLoad() {
@@ -43,7 +45,9 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "LoginSegue" {
-            
+            if let HomeViewController = segue.destination as? HomeViewController {
+                HomeViewController.token = token
+            }
         }
     }
 

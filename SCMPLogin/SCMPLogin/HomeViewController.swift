@@ -9,13 +9,20 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    var token: String?
+    
+    @IBOutlet weak var tokenTextField: UILabel!
+    
     @IBAction func close(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let token = token {
+            tokenTextField.text = token
+        }
     }
 
 }

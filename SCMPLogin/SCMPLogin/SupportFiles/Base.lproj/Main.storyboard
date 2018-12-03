@@ -115,6 +115,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qRh-CC-5ll"/>
                     </view>
+                    <connections>
+                        <outlet property="tokenTextField" destination="Whd-at-gZD" id="DEM-tM-aEp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgQ-C0-X2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
