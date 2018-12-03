@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
     @IBAction func login(_ sender: Any) {
         guard let email = emailTextField.text, email != "" else {
             showAlert(title: "Email", message: "Please enter your email", handler: {self.emailTextField.becomeFirstResponder()})
@@ -22,10 +23,10 @@ class LoginViewController: UIViewController {
             showAlert(title: "Password", message: "Invalid password", handler: {self.passwordTextField.becomeFirstResponder()})
             return
         }
-        
-        
-        
+
         // login API
+        let token = API().login(email, password)
+        print(token)
         performSegue(withIdentifier: "LoginSegue", sender: nil)
     }
     override func viewDidLoad() {
@@ -46,7 +47,7 @@ class LoginViewController: UIViewController {
         }
     }
 
-    func showAlert(title: String?, message: String?, handler: @escaping () -> () = {return}) {
+    func showAlert(title: String?, message: String?, handler: @escaping () -> Void = {return}) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: {
             action in

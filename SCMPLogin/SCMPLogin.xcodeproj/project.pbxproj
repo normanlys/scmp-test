@@ -14,6 +14,7 @@
 		1A6917F021B54F980034F3E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A6917EE21B54F980034F3E3 /* LaunchScreen.storyboard */; };
 		1A6917F821B555280034F3E3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6917F721B555280034F3E3 /* HomeViewController.swift */; };
 		1A6917FB21B559530034F3E3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6917FA21B559530034F3E3 /* String.swift */; };
+		1A6917FE21B567060034F3E3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6917FD21B567060034F3E3 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1A6917F121B54F980034F3E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A6917F721B555280034F3E3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1A6917FA21B559530034F3E3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		1A6917FD21B567060034F3E3 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +44,6 @@
 		1A6917D921B54F970034F3E3 = {
 			isa = PBXGroup;
 			children = (
-				1A6917FA21B559530034F3E3 /* String.swift */,
 				1A6917E421B54F970034F3E3 /* SCMPLogin */,
 				1A6917E321B54F970034F3E3 /* Products */,
 			);
@@ -59,15 +60,33 @@
 		1A6917E421B54F970034F3E3 /* SCMPLogin */ = {
 			isa = PBXGroup;
 			children = (
+				1A6917FF21B572BD0034F3E3 /* Networking */,
+				1A6917FC21B566870034F3E3 /* SupportFiles */,
 				1A6917E521B54F970034F3E3 /* AppDelegate.swift */,
 				1A6917E721B54F970034F3E3 /* LoginViewController.swift */,
 				1A6917F721B555280034F3E3 /* HomeViewController.swift */,
-				1A6917E921B54F970034F3E3 /* Main.storyboard */,
+			);
+			path = SCMPLogin;
+			sourceTree = "<group>";
+		};
+		1A6917FC21B566870034F3E3 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
 				1A6917EC21B54F980034F3E3 /* Assets.xcassets */,
+				1A6917FA21B559530034F3E3 /* String.swift */,
+				1A6917E921B54F970034F3E3 /* Main.storyboard */,
 				1A6917EE21B54F980034F3E3 /* LaunchScreen.storyboard */,
 				1A6917F121B54F980034F3E3 /* Info.plist */,
 			);
-			path = SCMPLogin;
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		1A6917FF21B572BD0034F3E3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1A6917FD21B567060034F3E3 /* API.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +164,7 @@
 				1A6917E621B54F970034F3E3 /* AppDelegate.swift in Sources */,
 				1A6917FB21B559530034F3E3 /* String.swift in Sources */,
 				1A6917F821B555280034F3E3 /* HomeViewController.swift in Sources */,
+				1A6917FE21B567060034F3E3 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +312,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MLXY323LE7;
-				INFOPLIST_FILE = SCMPLogin/Info.plist;
+				INFOPLIST_FILE = SCMPLogin/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,7 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MLXY323LE7;
-				INFOPLIST_FILE = SCMPLogin/Info.plist;
+				INFOPLIST_FILE = SCMPLogin/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
