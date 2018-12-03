@@ -23,7 +23,6 @@ class API {
                 token = nil
             }
         }
-        
         return token
     }
     

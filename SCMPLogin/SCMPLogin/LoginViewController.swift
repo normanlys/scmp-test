@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         performSegue(withIdentifier: "LoginSegue", sender: nil)
         return
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.keyboardType = .emailAddress
@@ -86,10 +87,6 @@ class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         return alert
     }
-    
-    func stopLoading() {
-        
-    }
 }
 
 extension LoginViewController: UITextFieldDelegate {
@@ -101,7 +98,6 @@ extension LoginViewController: UITextFieldDelegate {
             passwordTextField.resignFirstResponder()
             login(self)
         }
-        
         return false
     }
 }
