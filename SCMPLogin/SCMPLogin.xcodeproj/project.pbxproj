@@ -12,6 +12,8 @@
 		1A6917EB21B54F970034F3E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A6917E921B54F970034F3E3 /* Main.storyboard */; };
 		1A6917ED21B54F980034F3E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6917EC21B54F980034F3E3 /* Assets.xcassets */; };
 		1A6917F021B54F980034F3E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A6917EE21B54F980034F3E3 /* LaunchScreen.storyboard */; };
+		1A6917F821B555280034F3E3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6917F721B555280034F3E3 /* HomeViewController.swift */; };
+		1A6917FB21B559530034F3E3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6917FA21B559530034F3E3 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		1A6917EC21B54F980034F3E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A6917EF21B54F980034F3E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A6917F121B54F980034F3E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A6917F721B555280034F3E3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		1A6917FA21B559530034F3E3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,7 @@
 		1A6917D921B54F970034F3E3 = {
 			isa = PBXGroup;
 			children = (
+				1A6917FA21B559530034F3E3 /* String.swift */,
 				1A6917E421B54F970034F3E3 /* SCMPLogin */,
 				1A6917E321B54F970034F3E3 /* Products */,
 			);
@@ -56,6 +61,7 @@
 			children = (
 				1A6917E521B54F970034F3E3 /* AppDelegate.swift */,
 				1A6917E721B54F970034F3E3 /* LoginViewController.swift */,
+				1A6917F721B555280034F3E3 /* HomeViewController.swift */,
 				1A6917E921B54F970034F3E3 /* Main.storyboard */,
 				1A6917EC21B54F980034F3E3 /* Assets.xcassets */,
 				1A6917EE21B54F980034F3E3 /* LaunchScreen.storyboard */,
@@ -137,6 +143,8 @@
 			files = (
 				1A6917E821B54F970034F3E3 /* LoginViewController.swift in Sources */,
 				1A6917E621B54F970034F3E3 /* AppDelegate.swift in Sources */,
+				1A6917FB21B559530034F3E3 /* String.swift in Sources */,
+				1A6917F821B555280034F3E3 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
